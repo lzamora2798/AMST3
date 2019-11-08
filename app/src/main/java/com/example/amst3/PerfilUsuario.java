@@ -1,14 +1,14 @@
 package com.example.amst3;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +25,7 @@ public class PerfilUsuario extends AppCompatActivity {
     TextView txt_id, txt_name, txt_email;
     ImageView imv_photo;
     Button btn_logout;
+    String photo;
     DatabaseReference db_reference;
 
     @Override
@@ -42,11 +43,16 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_id.setText(info_user.get("user_id"));
         txt_name.setText(info_user.get("user_name"));
         txt_email.setText(info_user.get("user_email"));
-        String photo = info_user.get("user_photo");
+        photo = info_user.get("user_photo");
         iniciarBaseDeDatos();
         escribirTweets(info_user.get("user_name"));
         leerTweets();
-        Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
+
+        Picasso.with(getApplicationContext()).
+                load(photo).
+                resize(500,500).
+                transform(new CircleTransform()).
+                into(imv_photo);
     }
 
     public void iniciarBaseDeDatos() {

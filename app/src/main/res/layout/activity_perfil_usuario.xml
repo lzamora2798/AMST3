@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="50px"
+
     tools:context=".PerfilUsuario">
 
     <ImageView
         android:id="@+id/imv_foto"
-        android:layout_width="match_parent"
-        android:layout_height="331dp"
+        android:layout_width="wrap_content"
+        android:layout_height="146dp"
         android:contentDescription="TODO"
+        android:padding="20px"
+        android:layout_gravity="center"
         tools:srcCompat="@tools:sample/avatars" />
 
      <TextView
@@ -19,6 +23,7 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:gravity="center"
+         android:padding="20px"
      android:text="ID" />
 
      <TextView
@@ -27,6 +32,7 @@
      android:layout_height="wrap_content"
      android:gravity="center"
      android:text="Nombre de usuario"
+         android:padding="20px"
      android:textSize="30sp" />
 
      <TextView
@@ -35,6 +41,7 @@
      android:layout_height="wrap_content"
      android:gravity="center"
      android:text="correo"
+         android:padding="20px"
      android:textSize="18sp" />
 
      <Button
@@ -42,5 +49,6 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
          android:onClick="cerrarSesion"
+         android:padding="20px"
          android:text="Cerrar Sesion" />
 </LinearLayout>
