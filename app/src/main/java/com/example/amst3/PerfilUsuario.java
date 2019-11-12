@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PerfilUsuario extends AppCompatActivity {
-    TextView txt_id, txt_name, txt_email;
+    TextView txt_id, txt_name, txt_email,txt_numero;
     ImageView imv_photo;
     Button btn_logout;
     String photo;
@@ -38,12 +38,15 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_id = findViewById(R.id.txt_userId);
         txt_name = findViewById(R.id.txt_nombre);
         txt_email = findViewById(R.id.txt_correo);
+        txt_numero = findViewById(R.id.txt_numero);
         imv_photo = findViewById(R.id.imv_foto);
 
         txt_id.setText(info_user.get("user_id"));
         txt_name.setText(info_user.get("user_name"));
         txt_email.setText(info_user.get("user_email"));
+        txt_numero.setText(info_user.get("user_number"));
         photo = info_user.get("user_photo");
+
         iniciarBaseDeDatos();
         escribirTweets(info_user.get("user_name"));
         leerTweets();
